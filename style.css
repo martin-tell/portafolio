@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
+
+* {
+  font-size: 20px;
+  font-family: "VT323", monospace;
+  text-transform: uppercase;
+  color: #5bf870;
+}
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  50% {
+    text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  100% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+}
+
+
+#titulo::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: rgb(253, 76, 55)
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Código de Linea de tiempo */
+
+.timeline {
+  position: relative;
+}
+
+.timeline__progressbar {
+  --width: 2px;
+  --left: -moz-calc(((15vw / 2) + 15px) - (var(--width) / 2));
+  --left: calc(((15vw / 2) + 15px) - (var(--width) / 2));
+  position: absolute;
+  left: var(--left);
+  width: var(--width);
+  height: 100%;
+  background-color: rgb(253, 76, 55);/*#2c2c2c;*/
+  z-index: -1;
+}
+
+/*.timeline__progressbar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--left);
+  width: var(--width);
+  height: 50px;
+  background: orange;
+}*/
+
+@media screen and (min-width: 800px) {
+  .timeline__progressbar {
+    --width: 3px;
+    --left: -moz-calc(50% - (var(--width) / 2));
+    --left: calc(50% - (var(--width) / 2));
+  }
+}
+
+.timeline__block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15vw 1fr;
+  grid-template-columns: 15vw 1fr;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  -webkit-box-align: start;
+  -webkit-align-items: start;
+  -moz-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+
+@media screen and (min-width: 800px) {
+  .timeline__block {
+    -ms-grid-columns: 1fr 15vh 1fr;
+    grid-template-columns: 1fr 15vh 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .timeline__block__head {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    text-align: right;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50vh;
+  }
+}
+
+.timeline__block__body {
+  grid-column: 2 / -1;
+}
+
+@media screen and (min-width: 800px) {
+  .timeline__block__body {
+    grid-column: 3 / -1;
+  }
+}
+
+.timeline__block__bullet-point {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+  .timeline__block__bullet-point {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+  }
+}
+
+.timeline__block__circle {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 4px solid #0b0b0b;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.timeline__block__title {
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 799px) {
+  .timeline__block__title {
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .timeline__block__title {
+    line-height: 0;
+  }
+}
+
+.timeline__block__text {
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .timeline__block__text {
+    font-size: 1.2rem;
+  }
+}
+
+
+/*glitch*/
+
+.glitch {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.glitch svg {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  --glitch-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.glitch svg:nth-child(odd) { --glitch-translate: 15px; }
+.glitch svg:nth-child(even) { --glitch-translate: -15px; }
+
+@keyframes glitch {
+  0% {
+    opacity: 0;
+    transform: translateX(-5%);
+    text-shadow: -4px 9px 0 red, 4px -9px 0 blue;
+    filter: drop-shadow(-4px 9px 0 red);
+  };
+  60% {
+    opacity: 0.5;
+    transform: translateX(5%);
+    filter: drop-shadow(-4px 9px 0 red);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 4px -9px 0 red, -4px 9px 0 blue;
+    filter: drop-shadow(4px -9px 0 red);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 4px -9px 0 blue;
+    transform: translate(var(--glitch-translate));
+    filter: drop-shadow(-2px 3px 0 blue, 2px -3px 0 red);
+  }
+  2% {
+    text-shadow: 4px -9px 0 red, -4px 9px 0 blue;
+    filter: drop-shadow(2px -3px 0 blue, -2px 3px 0 red);
+  }
+  4%, 100% {  text-shadow: none; transform: none; }
+}
