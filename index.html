@@ -10,7 +10,7 @@
 
     <body data-bs-theme="dark" aria-pressed="false">
 
-        <div class="container bg-dark sticky-top">
+        <div class="container bg-dark sticky-top" id="header">
             <header class="border-bottom lh-1 py-3">
                 <div class="row flex-nowrap justify-content-between align-items-center">
                   <div class="col-4 pt-1">
@@ -35,11 +35,11 @@
                 </div>
             </header>
             
-            <div class="nav-scroller py-1 mb-3 border-bottom">
+            <div class="nav-scroller py-1 border-bottom">
                 <nav class="nav nav-underline justify-content-evenly">
-                  <a class="nav-item nav-link link-body-emphasis" href="#yo">Yo</a>
-                  <a class="nav-item nav-link link-body-emphasis" href="#habilidades">Habilidades Técnicas</a>
-                  <a class="nav-item nav-link link-body-emphasis" href="#proyectos">Mis Proyetos</a>
+                  <a class="nav-item nav-link link-body-emphasis" href="#seccion1">Yo</a>
+                  <a class="nav-item nav-link link-body-emphasis" href="#seccion2">Habilidades Técnicas</a>
+                  <a class="nav-item nav-link link-body-emphasis" href="#seccion3">Mis Proyetos</a>
                 </nav>
             </div>
         </div>
@@ -48,22 +48,24 @@
 
             <div class="row">
 
-                <div class="col-md-7 d-flex justify-content-center align-items-center">
-                    <div id="yo">
-                        <h3> Programador <span style="color: rgb(253, 76, 55)">Backend</span> </h3>
-                        <p>¡Hola! Mi nombre es Martín, programador Backend dedicado a la creación de aplicaciones eficientes y robustas desde el lado del servidor.</p>
-                    </div>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-5">
                     <div class="glitch">
                         <img src="images/Freelance-Developer.svg" height="500" width="500" />
                     </div>
                 </div>
+
+                <div class="col-md-7 d-flex justify-content-center align-items-center">
+                    <section id="seccion1">
+                        <h3> <span> Programador </span> <span class="red"> Backend </span> </h3>
+                        <p>¡Hola! Mi nombre es Martín, programador Backend dedicado a la creación de aplicaciones eficientes y robustas desde el lado del servidor.</p>
+                    </section>
+                </div>
+                
             </div>
             
-            <div id="habilidades" class="d-flex justify-content-center mt-5 mb-5">
+            <section id="seccion2" class="d-flex justify-content-center mt-5 mb-5">
                 <h4>Habilidades <span style="color: rgb(253, 76, 55); font-size: 20px;">Técnicas</span></h4>
-            </div>
+            </section>
             <div class="marketing">
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
@@ -91,9 +93,9 @@
                 </div>                        
             </div>  
             
-            <div id="proyectos" class="d-flex justify-content-center mt-5 mb-5">
+            <section id="seccion3" class="d-flex justify-content-center mt-5 mb-5">
                 <h4><span style="color: rgb(253, 76, 55)">Mis</span> proyectos</h4>
-            </div>
+            </section>
 
             <div class="time_line_container">
                 <section class="timeline">

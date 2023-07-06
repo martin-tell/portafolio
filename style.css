@@ -7,28 +7,14 @@
   color: #5bf870;
 }
 
-@keyframes textShadow {
-  0% {
-    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-  }
-  50% {
-    text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-  }
-  100% {
-    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-  }
+.red{
+  color: rgb(253, 76, 55);
 }
-
 
 #titulo::after {
     content: '|';
     animation: blink 1s infinite;
-    color: rgb(253, 76, 55)
-}
-
-@keyframes blink {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+    color: rgb(253, 76, 55);
 }
 
 /* Código de Linea de tiempo */
